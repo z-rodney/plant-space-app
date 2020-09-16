@@ -2,6 +2,7 @@ import React from "react"
 import axios from "axios"
 import SinglePlant from './SinglePlant'
 import PlantList from './PlantList'
+import Header from './Header'
 
 export default class App extends React.Component {
 	constructor(){
@@ -40,11 +41,14 @@ export default class App extends React.Component {
 
 	render(){
 		return (
-			<section className='container'>
-				{ this.state.selectedPlant.id ?
-				( <SinglePlant selectedPlant={this.state.selectedPlant}/>
-				) : <PlantList plants={this.state.plants}/>
-				}
+			<section id='main'>
+				<Header />
+				<section className='container'>
+					{ this.state.selectedPlant.id ?
+					( <SinglePlant selectedPlant={this.state.selectedPlant}/>
+					) : <PlantList plants={this.state.plants}/>
+					}
+				</section>
 			</section>
 		)
 	}
