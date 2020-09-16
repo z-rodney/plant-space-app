@@ -1,0 +1,84 @@
+body, h1 {
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+  background: #F4FAF0;
+}
+
+
+header {
+  color: #122b29;
+  background: #A0D076;
+  padding: 1rem;
+}
+
+header h1 {
+  font-family: 'Rokkitt', serif;
+}
+
+a, a:hover, a:active, a:visited {
+  text-decoration: none;
+  color: black;
+  transition: all .5s;
+}
+
+a:hover {
+  color: #1a8d4a;
+  font-weight: 400;
+}
+
+/* -- PLANT LIST VIEW --*/
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 1rem;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.single-plant {
+  background: #D5EAC3;
+  flex-basis: 35%;
+  flex-grow: 0;
+  border: solid 1px #B4DA95;
+  border-radius: 25px;
+  margin: 1rem;
+  text-align: center;
+  padding: 1rem;
+  transition: all .5s;
+}
+
+.single-plant:hover {
+  background: #D5EAC3;
+}
+
+.plant-img {
+  height: 24rem;
+  width: 20rem;
+}
+
+/* -- PLANT DETAIL VIEW -- */
+
+.selected-plant-view {
+  width: 50%;
+  background: #D5EAC3;
+  padding: 2rem;
+  border-radius: 25px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.selected-img {
+  height: 550px;
+  width: 450px;
+  align-self: center;
+}
+
+.plant-info {
+  font-weight: bold;
+}
+
