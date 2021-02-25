@@ -6,7 +6,7 @@
 	"scripts": {
 		"test": "mocha \"**/*.spec.js\"",
 		"build": "webpack",
-		"build:dev": "webpack -w",
+		"build:dev": "webpack -w --mode=development",
 		"start": "node server/index.js",
 		"start:dev": "npm run build:dev & nodemon --ignore client --ignore server/public"
 	},
@@ -16,20 +16,18 @@
 		"axios": "^0.21.1",
 		"express": "^4.17.1",
 		"morgan": "^1.10.0",
-		"pg": "^8.3.3",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
+		"react-router-dom": "^5.2.0",
 		"sequelize": "^6.3.4"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.4.3",
 		"@babel/preset-react": "^7.0.0",
 		"babel-loader": "^8.0.5",
-		"chai": "^4.2.0",
 		"eslint": "^7.9.0",
 		"eslint-config-prettier": "^6.11.0",
 		"eslint-plugin-react": "^7.20.6",
-		"mocha": "^8.1.2",
 		"nodemon": "^2.0.4",
 		"prettier": "2.1.2",
 		"webpack": "^4.44.1",
