@@ -8,7 +8,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.static(path.join(__dirname, './public')))
 
-app.use('/api', require('./routes/apiRoutes'))
+app.use('/api', require('./routes/plants'))
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'))
