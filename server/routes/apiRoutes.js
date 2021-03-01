@@ -1,8 +1,6 @@
 const router = require("express").Router()
 const { Plant, Detail } = require('../db')
 const { User } = require('../db/user')
-const bcrypt = require('bcrypt')
-
 
 router.post('/users', async (req, res, next) => {
   try {
@@ -23,8 +21,9 @@ router.post('/users', async (req, res, next) => {
 
 router.get('/plants', async (req, res, next) => {
   try {
+    const { user } = req
     const plants = await Plant.findAll();
-    res.send(plants)
+    res.send({ user, plants })
   } catch(err) {
     next(err)
   }

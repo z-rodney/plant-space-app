@@ -3,11 +3,13 @@ const app = express();
 const { db } = require('./db')
 const morgan = require('morgan')
 const path = require('path')
+const { authorizeUser } = require('./authMiddleware')
 
 app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.static(path.join(__dirname, './public')))
 
+app.use(authorizeUser)
 app.use('/auth', require('./routes/auth'))
 app.use('/api', require('./routes/apiRoutes'))
 

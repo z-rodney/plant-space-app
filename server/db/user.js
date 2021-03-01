@@ -21,10 +21,6 @@ const User = db.define('user', {
   }
 })
 
-User.authenticate = function (username, password) {
-  
-}
-
 User.beforeCreate('hash password', async (user) => {
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(user.password, salt);
