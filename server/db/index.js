@@ -3,20 +3,20 @@ const dbUrl = process.env.DATABASE_URL || 'postgres://localhost/plant-space'
 const db = new Sequelize(dbUrl, {
   logging: false
 })
-const {STRING, TEXT} = Sequelize
+const { DataTypes } = Sequelize 
 
 const Plant = db.define('plant', {
   name: {
     allowNull: false,
-    type: STRING
+    type: DataTypes.STRING
   },
-  imgUrl: STRING
+  imgUrl: DataTypes.STRING
 })
 
 const Detail = db.define('detail', {
-  description: TEXT,
-  wateringFrequency: STRING,
-  light: STRING
+  description: DataTypes.TEXT,
+  wateringFrequency: DataTypes.STRING,
+  light: DataTypes.STRING
 })
 
 Plant.hasOne(Detail)
@@ -26,5 +26,6 @@ Detail.belongsTo(Plant)
 module.exports = {
   db,
   Plant,
-  Detail
+  Detail,
+  //User
 }

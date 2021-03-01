@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express();
-const { syncAndSeed } = require('./db/seed')
+const { db } = require('./db')
 const morgan = require('morgan')
 const path = require('path')
 
@@ -8,7 +8,8 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.static(path.join(__dirname, './public')))
 
-app.use('/api', require('./routes/plants'))
+app.use('/auth', require('./routes/auth'))
+app.use('/api', require('./routes/apiRoutes'))
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'))
@@ -27,7 +28,7 @@ app.use((err, req, res, next) => {
 
 const port = process.env.PORT || 3035;
 const init = async () => {
-  await syncAndSeed();
+  await db.sync();
   app.listen(port, () => {
     console.log(`listening on port ${port}`)
   })

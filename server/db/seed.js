@@ -1,4 +1,5 @@
 const { db, Plant, Detail } = require('./index')
+const { User } = require('./user')
 
 const plants = [
   {name: 'Aloe Vera',
@@ -50,17 +51,23 @@ const details = [
   }
 ]
 
+const users = [
+  {
+    username: 'zaina',
+    password: 'zaina_pw',
+    isAdmin: true
+  }
+]
+
 const syncAndSeed = async () => {
   await db.sync({force: true});
-  Promise.all([
+  await Promise.all([
     Plant.bulkCreate(plants),
-    Detail.bulkCreate(details)
+    Detail.bulkCreate(details),
+    User.bulkCreate(users, {individualHooks: true})
   ])
+  console.log('database seeded successfully!')
+  await db.close()
 }
 
-module.exports = {
-  db,
-  Plant,
-  Detail,
-  syncAndSeed
-}
+syncAndSeed()
