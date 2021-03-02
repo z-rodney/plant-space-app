@@ -88,3 +88,23 @@ a:hover {
   font-weight: bold;
 }
 
+.center-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*---- CARD ---- */
+.login-card {
+  width: 40%;
+  margin: 2rem;
+  padding: 2rem;
+}
+
+.form-card {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+

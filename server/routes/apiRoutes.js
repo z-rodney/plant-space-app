@@ -21,9 +21,8 @@ router.post('/users', async (req, res, next) => {
 
 router.get('/plants', async (req, res, next) => {
   try {
-    const { user } = req
     const plants = await Plant.findAll();
-    res.send({ user, plants })
+    res.send(plants)
   } catch(err) {
     next(err)
   }
