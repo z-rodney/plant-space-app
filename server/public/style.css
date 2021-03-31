@@ -36,6 +36,25 @@ a:hover {
   color: #1a8d4a;
   font-weight: 400;
 }
+/* -- HOME PAGE --*/
+.hero-img {
+  width: 100vw;
+  height: 70vh;
+  background-image: url(leaves.jpg);
+  background-color: #5e853f;
+  background-blend-mode: overlay;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 165%; /* Resize the background image to cover the entire container*/
+}
+
+.hero-img img {
+  opacity: 0.2;
+  width: 100vw;
+  /*width: 165%;
+  height: 100%;
+  filter: blur(2px);*/
+}
 
 /* -- PLANT LIST VIEW --*/
 .container {

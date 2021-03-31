@@ -5,16 +5,23 @@ import PlantList from './PlantList'
 import Header from './Header'
 import Login from './Login'
 import Account from './Account'
+import Home from './Home'
+import { UserContext, useUser } from '../store/userContext'
 
 function App(){
 	return (
-		<Router>
-			<Header/>
-			<Route exact path="/plants" component={PlantList} />
-			<Route exact path="/plants/:plantId" component={SinglePlant} />
-			<Route exact path="/login" component={Login} />
-			<Route exact path="/account" component={Account} />
-		</Router>
+		<>
+			<Router>
+				<UserContext.Provider value={useUser()}>
+					<Header />
+					<Route exact path="/" component={Home} />
+					<Route exact path="/plants" component={PlantList} />
+					<Route exact path="/plants/:plantId" component={SinglePlant} />
+					<Route exact path="/login" component={Login} />
+					<Route exact path="/account" component={Account} />
+				</UserContext.Provider >
+			</Router>
+		</>
 	)
 }
 

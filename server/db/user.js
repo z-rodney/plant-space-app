@@ -1,4 +1,4 @@
-const { db } = require('./index')
+const { db } = require('./db')
 const { DataTypes } = require('sequelize')
 const bcrypt = require('bcrypt')
 

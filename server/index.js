@@ -7,6 +7,7 @@ const { authorizeUser } = require('./authMiddleware')
 
 app.use(morgan('dev'))
 app.use(express.json())
+app.use(express.static(path.join(__dirname, './public/icons')))
 app.use(express.static(path.join(__dirname, './public')))
 
 app.use(authorizeUser)
@@ -23,10 +24,8 @@ app.use((req, res, next) => {
 })
 
 app.use((err, req, res, next) => {
-  res.status(500).send(err.message)
+  res.status(err.status || 500).send(err.message)
 })
-
-
 
 const port = process.env.PORT || 3035;
 const init = async () => {

@@ -1,9 +1,8 @@
-const Sequelize = require("sequelize")
-const dbUrl = process.env.DATABASE_URL || 'postgres://localhost/plant-space'
-const db = new Sequelize(dbUrl, {
-  logging: false
-})
-const { DataTypes } = Sequelize 
+const { DataTypes } = require('sequelize')
+const { db } = require('./db')
+
+const { User } = require('./user')
+const { UserSetting } = require('./userSettings')
 
 const Plant = db.define('plant', {
   name: {
@@ -22,10 +21,17 @@ const Detail = db.define('detail', {
 Plant.hasOne(Detail)
 Detail.belongsTo(Plant)
 
+User.hasOne(UserSetting)
+UserSetting.belongsTo(User)
+
+/*User.hasMany(Plant)
+Plant.belongsToMany(Plant)*/
+
 
 module.exports = {
   db,
   Plant,
   Detail,
-  //User
+  User,
+  UserSetting
 }
