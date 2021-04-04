@@ -16,6 +16,10 @@ header {
   padding: 1rem;
 }
 
+nav {
+  text-align: right;
+}
+
 header h1 {
   font-family: 'Rokkitt', serif;
 }
@@ -36,8 +40,75 @@ a:hover {
   color: #1a8d4a;
   font-weight: 400;
 }
+.col-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.col-5 {
+  flex: 0 1 calc(25% - 2rem);
+  padding: 1rem;
+}
+
+.center-text {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
 /* -- HOME PAGE --*/
-.hero-img {
+
+#home-overlay {
+  width: 100vw;
+  height: 70vh;
+  background-image: url(leaves.jpg);
+  background-color: #5e853f;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 2;
+  position: relative;
+}
+
+#home-overlay:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(27, 92, 13, 0.664);
+  z-index: 1;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  text-align: center;
+  color: rgb(223, 241, 194);
+}
+
+.text-overlay h2 {
+  margin-top: 0;
+}
+
+#home-overlay > * {
+  position: relative;
+  z-index: 2;
+}
+
+#about {
+  padding: 2rem;
+}
+#about h2{
+  text-align: center
+}
+
+/*.hero-img {
   width: 100vw;
   height: 70vh;
   background-image: url(leaves.jpg);
@@ -45,16 +116,8 @@ a:hover {
   background-blend-mode: overlay;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 165%; /* Resize the background image to cover the entire container*/
-}
-
-.hero-img img {
-  opacity: 0.2;
-  width: 100vw;
-  /*width: 165%;
-  height: 100%;
-  filter: blur(2px);*/
-}
+  background-size: 165%; Resize the background image to cover the entire container
+}*/
 
 /* -- PLANT LIST VIEW --*/
 .container {

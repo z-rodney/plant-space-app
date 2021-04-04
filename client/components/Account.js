@@ -29,10 +29,9 @@ const Account = function () {
   }, [])
 
   return (
-    loading ?
-      <h1>Welcome, {state.user.username}!</h1>
-      :
-      <h1>Not signed in</h1>
+    loading
+      ? <h1>Welcome, {state.user.username}!</h1>
+      : <h1>Not signed in</h1>
   )
 }
 
