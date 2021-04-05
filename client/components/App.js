@@ -7,6 +7,7 @@ import Login from './Login'
 import Account from './Account'
 import Home from './Home'
 import Footer from './Footer'
+import SignUp from './SignUp'
 import { UserContext, useUser } from '../store/userContext'
 
 function App(){
@@ -20,6 +21,7 @@ function App(){
 					<Route exact path="/plants/:plantId" component={SinglePlant} />
 					<Route exact path="/login" component={Login} />
 					<Route exact path="/account" component={Account} />
+					<Route exact path="/signup" component={SignUp}/>
 					<Footer/>
 				</UserContext.Provider >
 			</Router>

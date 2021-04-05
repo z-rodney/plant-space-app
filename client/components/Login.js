@@ -25,6 +25,7 @@ const Login = function () {
       {redirect && <Redirect to="/account" />}
       <div className="center-container">
         <Card className="login-card">
+          <h2>Login to your Account</h2>
           <form className="form-card" onSubmit={handleLogin}>
             <TextField
               className="form-input"
