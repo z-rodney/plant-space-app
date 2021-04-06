@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Redirect } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { TextField, Card, Button } from '@material-ui/core'
 import axios from 'axios'
 import { useInput } from '../_customHooks'
@@ -7,14 +7,15 @@ import { useInput } from '../_customHooks'
 const Login = function () {
   const [username, setUsername] = useInput('')
   const [password, setPassword] = useInput('')
-  const [redirect, setRedirect] = useState(false)
+  const history = useHistory()
+  //const [redirect, setRedirect] = useState(false)
 
   const handleLogin = async function (e) {
     e.preventDefault()
     try {
       const {data : token} = await axios.post('/auth/login', { username, password })
       window.localStorage.setItem('token', token)
-      setRedirect(true)
+      history.push('/account')
     } catch (err) {
       console.log(err)
     }
@@ -22,7 +23,6 @@ const Login = function () {
 
   return (
     <>
-      {redirect && <Redirect to="/account" />}
       <div className="center-container">
         <Card className="login-card">
           <h2>Login to your Account</h2>

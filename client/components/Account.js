@@ -6,6 +6,7 @@ import { UserContext } from '../store/userContext'
 const Account = function () {
   const [loading, setLoading] = useState(false)
   const { state, dispatch } = useContext(UserContext)
+  const { user: { username } } = state
   console.log(state)
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const Account = function () {
 
   return (
     loading
-      ? <h1>Welcome, {state.user.username}!</h1>
+      ? <h1>Welcome, {username}!</h1>
       : <h1>Not signed in</h1>
   )
 }

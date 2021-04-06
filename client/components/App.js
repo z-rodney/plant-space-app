@@ -9,6 +9,7 @@ import Home from './Home'
 import Footer from './Footer'
 import SignUp from './SignUp'
 import { UserContext, useUser } from '../store/userContext'
+import PrivateRoute from './utilComponents'
 
 function App(){
 	return (
@@ -20,7 +21,7 @@ function App(){
 					<Route exact path="/plants" component={PlantList} />
 					<Route exact path="/plants/:plantId" component={SinglePlant} />
 					<Route exact path="/login" component={Login} />
-					<Route exact path="/account" component={Account} />
+					<PrivateRoute exact path="/account" component={Account} />
 					<Route exact path="/signup" component={SignUp}/>
 					<Footer/>
 				</UserContext.Provider >
